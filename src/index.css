@@ -1,0 +1,44 @@
+:root {
+  /* Color Palette - Warm, romantic, pastel aesthetic */
+  --color-background: #FDFBF7; /* Warm cream */
+  --color-surface: #FFFFFF;
+  --color-primary: #E5989B; /* Soft rose */
+  --color-secondary: #FFB4A2; /* Peach */
+  --color-text-main: #4A4A4A;
+  --color-text-muted: #8A8A8A;
+  --color-border: #F0E6E6;
+  
+  /* Typography */
+  --font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  
+  /* Spacing & Layout */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-background);
+  color: var(--color-text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}

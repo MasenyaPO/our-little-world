@@ -1,0 +1,135 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0 0.5rem;
+}
+
+.title {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+}
+
+.addButton {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.formCard {
+  background: var(--color-surface);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid var(--color-primary);
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputGroup label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.input, .textarea {
+  padding: 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: var(--color-background);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.formActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.notesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .notesGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.noteCard {
+  background: var(--color-surface);
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Make notes received from partner look slightly different */
+.noteReceived {
+  background: #fff0f0; /* Very soft pink tint */
+  border: 1px solid #ffe4e4;
+}
+
+.noteSent {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.noteHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.noteTitle {
+  font-size: 1.1rem;
+  color: var(--color-text-main);
+  font-weight: 600;
+}
+
+.noteDate {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.noteContent {
+  color: var(--color-text-main);
+  line-height: 1.5;
+  white-space: pre-wrap; /* Keeps line breaks from the textarea */
+}
+
+.noteFooter {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  text-align: right;
+}
