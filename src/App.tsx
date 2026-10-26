@@ -1,15 +1,17 @@
-import { Questions } from './features/questions/Questions';
-import { BucketList } from './features/bucketlist/BucketList';
-import { Notes } from './features/notes/Notes';
-import { Memories } from './features/memories/Memories';
-import { ImportantDates } from './features/dates/ImportantDates';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { Login } from './pages/Login';
 import { Onboarding } from './pages/Onboarding';
 import { useRelationship } from './hooks/useRelationship';
 import { AppLayout } from './components/AppLayout';
+
+// Feature Components
 import { Dashboard } from './features/dashboard/Dashboard';
+import { ImportantDates } from './features/dates/ImportantDates';
+import { Memories } from './features/memories/Memories';
+import { Notes } from './features/notes/Notes';
+import { BucketList } from './features/bucketlist/BucketList';
+import { Questions } from './features/questions/Questions';
 
 // This intercepts users who are logged in, but haven't created/joined a space
 const RelationshipGuard = ({ children }: { children: React.ReactNode }) => {
@@ -30,14 +32,6 @@ const AppRoute = ({ children }: { children: React.ReactNode }) => (
       </AppLayout>
     </RelationshipGuard>
   </ProtectedRoute>
-);
-
-// Placeholder screens for future stages
-const PlaceholderScreen = ({ title }: { title: string }) => (
-  <div style={{ padding: '2rem', textAlign: 'center' }}>
-    <h2 style={{ color: 'var(--color-primary)' }}>{title}</h2>
-    <p>This feature will be built in an upcoming stage.</p>
-  </div>
 );
 
 function App() {

@@ -22,7 +22,6 @@ export const Questions = () => {
   
   const [questions, setQuestions] = useState<Question[]>([]);
   const [answers, setAnswers] = useState<Answer[]>([]);
-  const [profiles, setProfiles] = useState<Record<string, string>>({});
   
   // Local state for typing a new answer
   const [drafts, setDrafts] = useState<Record<string, string>>({});
@@ -30,26 +29,16 @@ export const Questions = () => {
 
   useEffect(() => {
     if (relationshipId) {
-      fetchProfiles();
       fetchQuestionsAndAnswers();
     }
   }, [relationshipId]);
-
-  const fetchProfiles = async () => {
-    const { data } = await supabase.from('profiles').select('id, display_name');
-    if (data) {
-      const pMap: Record<string, string> = {};
-      data.forEach(p => pMap[p.id] = p.display_name || 'Partner');
-      setProfiles(pMap);
-    }
-  };
 
   const fetchQuestionsAndAnswers = async () => {
     // 1. Get all questions
     const { data: qData } = await supabase.from('daily_questions').select('*');
     if (qData) setQuestions(qData);
 
-    // 2. Get answers (RLS will automatically hide partner answers if you haven't answered yet!)
+    // 2. Get answers
     const { data: aData } = await supabase
       .from('question_answers')
       .select('question_id, user_id, answer_text')
@@ -73,7 +62,6 @@ export const Questions = () => {
     ]);
 
     if (!error) {
-      // Clear draft and refresh so we can now see partner's answer if they submitted one
       setDrafts({ ...drafts, [questionId]: '' });
       await fetchQuestionsAndAnswers();
     }
@@ -89,9 +77,7 @@ export const Questions = () => {
 
       <div className={styles.questionList}>
         {questions.map((q) => {
-          // Find if we answered it
           const myAnswer = answers.find(a => a.question_id === q.id && a.user_id === user?.id);
-          // Find if partner answered it (we will only get this if our RLS policy allows it)
           const partnerAnswer = answers.find(a => a.question_id === q.id && a.user_id !== user?.id);
 
           return (
