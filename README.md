@@ -1,32 +1,31 @@
-# React + TypeScript + Vite
+# Our Little World 🌍
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A private, secure, Progressive Web App (PWA) designed exclusively as a shared digital space for two people. 
 
-Currently, two official plugins are available:
+## Features (Version 1)
+*   **Home Dashboard:** Live relationship duration counter and daily status updates.
+*   **Important Dates:** Shared calendar with recurring event tracking and countdowns.
+*   **Our Memories:** Chronological photo timeline backed by private cloud storage.
+*   **Love Notes:** A space for affectionate messages and appreciation.
+*   **Bucket List:** Shared goal tracking with pending and completed states.
+*   **Couple Q&A:** Blind-answer daily prompts enforced by database security policies.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Technology Stack
+*   **Frontend:** React 18, TypeScript, Vite
+*   **Styling:** CSS Modules
+*   **Backend & Database:** Supabase (PostgreSQL, Auth, Storage)
+*   **Hosting:** Cloudflare Pages
+*   **PWA:** `vite-plugin-pwa` for manifest generation and offline asset caching
 
-## React Compiler
+## Security Architecture
+This application enforces strict data isolation using PostgreSQL Row Level Security (RLS). 
+*   Users authenticate via Supabase Auth.
+*   The `relationship_members` table binds exactly two users to a single tenant space.
+*   RLS policies ensure users can only query, insert, or update records associated with their specific `relationship_id`.
+*   Private Storage Buckets ensure uploaded media cannot be accessed without an authorized session.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Local Development Setup
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+1. **Install dependencies:**
+   ```bash
+   npm install
