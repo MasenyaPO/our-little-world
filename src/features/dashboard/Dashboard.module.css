@@ -1,105 +1,48 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+.hero {
+  text-align: center; padding: 1.5rem 1rem 0.5rem;
 }
+.titleRow { display: inline-flex; align-items: center; gap: 0.5rem; max-width: 100%; }
+.title { color: var(--color-primary); font-size: 2rem; word-break: break-word; }
+.iconBtn { background: none; border: none; color: var(--color-text-muted); font-size: 1rem; padding: 0.3rem; border-radius: 50%; }
+.iconBtn:hover { background: var(--color-surface-alt); }
+.renameRow { display: flex; gap: 0.5rem; justify-content: center; align-items: center; flex-wrap: wrap; }
+.renameInput { font-family: var(--font-display); font-size: 1.5rem; text-align: center; max-width: 100%; padding: 0.4rem 0.8rem; border: 1px solid var(--color-primary); border-radius: var(--radius-md); }
+.welcome { color: var(--color-text-muted); margin-top: 0.25rem; }
 
-.header {
-  text-align: center;
-  padding: 1rem 0;
-}
+.cardTitle { font-size: 1.05rem; margin-bottom: 1rem; }
 
-.title {
-  color: var(--color-primary);
-  font-size: 1.75rem;
-  margin-bottom: 0.25rem;
-}
-
-.card {
-  background: var(--color-surface);
-  border-radius: var(--radius-lg);
-  padding: 1.5rem;
-  box-shadow: var(--shadow-sm);
-}
-
-.cardTitle {
-  font-size: 1.1rem;
-  color: var(--color-text-main);
-  margin-bottom: 1rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.counter {
-  display: flex;
-  justify-content: space-around;
-  text-align: center;
-}
-
+.counter { display: flex; justify-content: space-around; gap: 0.5rem; }
 .counterBox {
-  display: flex;
-  flex-direction: column;
+  flex: 1; display: flex; flex-direction: column; align-items: center; padding: 0.9rem 0.25rem;
+  background: var(--color-primary-soft); border-radius: var(--radius-md);
 }
+.counterNumber { font-family: var(--font-display); font-size: 2.1rem; font-weight: 700; color: var(--color-primary); line-height: 1.1; }
+.counterLabel { font-size: 0.75rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.totalDays { text-align: center; color: var(--color-text-muted); font-size: 0.85rem; margin-top: 0.85rem; }
 
-.counterNumber {
-  font-size: 2rem;
-  font-weight: bold;
-  color: var(--color-primary);
-}
-
-.counterLabel {
-  font-size: 0.8rem;
-  color: var(--color-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.statusGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
+.statusGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+@media (max-width: 420px) { .statusGrid { grid-template-columns: 1fr; } }
 .profileBox {
-  text-align: center;
-  padding: 1rem;
-  background: var(--color-background);
-  border-radius: var(--radius-md);
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.35rem;
+  background: var(--color-surface-alt); border-radius: var(--radius-md); padding: 1rem 0.75rem;
 }
-
 .avatar {
-  width: 60px;
-  height: 60px;
-  background-color: var(--color-secondary);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  margin: 0 auto 0.5rem;
+  width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.25rem;
 }
+.nameRow { display: inline-flex; align-items: center; gap: 0.25rem; max-width: 100%; }
+.nameRow strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nameInput { width: 100%; text-align: center; padding: 0.35rem 0.6rem; border: 1px solid var(--color-primary); border-radius: var(--radius-sm); font-size: 0.95rem; }
+.statusText { font-size: 0.95rem; min-height: 2.6em; word-break: break-word; }
+.statusAge { font-size: 0.72rem; color: var(--color-text-muted); }
 
-.statusText {
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-  font-style: italic;
-  margin-top: 0.5rem;
-}
+.moodEditor { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.6rem; }
+.moodRow { display: flex; gap: 0.5rem; }
 
-.statusSelect {
-  margin-top: 0.5rem;
-  padding: 0.4rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--color-border);
-  font-size: 0.8rem;
-  width: 100%;
+.inviteCard { text-align: center; background: linear-gradient(135deg, var(--color-primary-soft), var(--color-surface)); }
+.code {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 2rem; font-weight: 800;
+  letter-spacing: 0.3em; color: var(--color-primary); margin: 0.75rem 0 0.75rem 0.3em; user-select: all;
 }
-
-.placeholderText {
-  color: var(--color-text-muted);
-  font-size: 0.9rem;
-  text-align: center;
-}
+.inviteActions { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
+.settings { display: flex; justify-content: center; padding: 0.5rem 0 1rem; }

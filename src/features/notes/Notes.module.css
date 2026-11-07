@@ -1,135 +1,26 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 0 0.5rem;
-}
-
-.title {
-  color: var(--color-primary);
-  font-size: 1.5rem;
-}
-
-.addButton {
-  background-color: var(--color-primary);
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-  transition: opacity 0.2s;
-}
-
-.formCard {
-  background: var(--color-surface);
-  padding: 1.5rem;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  border: 1px solid var(--color-primary);
-}
-
-.inputGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.inputGroup label {
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-
-.input, .textarea {
-  padding: 0.75rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  font-family: inherit;
-  font-size: 1rem;
-  background-color: var(--color-background);
-}
-
-.textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-.formActions {
-  display: flex;
-  gap: 1rem;
-  margin-top: 0.5rem;
-}
-
-.notesGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-}
-
-@media (min-width: 600px) {
-  .notesGrid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
+.notesGrid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+@media (min-width: 640px) { .notesGrid { grid-template-columns: 1fr 1fr; align-items: start; } }
 
 .noteCard {
-  background: var(--color-surface);
-  padding: 1.25rem;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  display: flex; flex-direction: column; gap: 0.6rem; padding: 1.1rem; border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm); border: 1px solid var(--color-border); background: var(--color-surface);
 }
+.noteSent { background: var(--color-primary-soft); border-color: transparent; }
+.noteReceived { background: var(--color-surface); border-left: 4px solid var(--color-secondary); }
 
-/* Make notes received from partner look slightly different */
-.noteReceived {
-  background: #fff0f0; /* Very soft pink tint */
-  border: 1px solid #ffe4e4;
-}
+.noteTop { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; }
+.noteTitle { font-size: 1.1rem; word-break: break-word; }
+.noteDate { font-size: 0.78rem; color: var(--color-text-muted); }
 
-.noteSent {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-}
-
-.noteHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.noteTitle {
-  font-size: 1.1rem;
-  color: var(--color-text-main);
-  font-weight: 600;
-}
-
-.noteDate {
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
-}
-
+/* the max height every note shares: 5 lines, then "Read more" */
 .noteContent {
-  color: var(--color-text-main);
-  line-height: 1.5;
-  white-space: pre-wrap; /* Keeps line breaks from the textarea */
+  white-space: pre-wrap; word-break: break-word; line-height: 1.55;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; line-clamp: 5; overflow: hidden;
 }
+.noteFooter { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.15rem; }
+.footLeft { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+.replyBadge { background: none; border: none; color: var(--color-text-muted); font-size: 0.85rem; padding: 0.2rem 0.4rem; border-radius: var(--radius-pill); }
+.replyBadge:hover { background: var(--color-surface-alt); color: var(--color-primary); }
 
-.noteFooter {
-  margin-top: auto;
-  padding-top: 0.75rem;
-  font-size: 0.8rem;
-  color: var(--color-text-muted);
-  font-style: italic;
-  text-align: right;
-}
+.fullContent { white-space: pre-wrap; word-break: break-word; line-height: 1.65; }
+.fullMeta { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.9rem; }

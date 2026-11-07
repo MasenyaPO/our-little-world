@@ -1,0 +1,2 @@
+# Copy to .dev.vars for local `npm run dev:full` (this file is git-ignored)
+MEDIA_SIGNING_SECRET=any-long-random-string-for-local-testing

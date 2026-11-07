@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './hooks/useAuth.tsx';
 import { RelationshipProvider } from './hooks/useRelationship.tsx';
+import { ProfilesProvider } from './hooks/useProfiles.tsx';
 import App from './App.tsx';
 import './index.css';
 
@@ -11,7 +12,9 @@ createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
       <AuthProvider>
         <RelationshipProvider>
-          <App />
+          <ProfilesProvider>
+            <App />
+          </ProfilesProvider>
         </RelationshipProvider>
       </AuthProvider>
     </BrowserRouter>
